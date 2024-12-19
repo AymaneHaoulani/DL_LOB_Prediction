@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 
-def import_data(folder_path='/content/drive/My Drive/'):
+def import_data(folder_path='../../data/'):
     # Generate file names for the date range
     date_range = pd.date_range(start="2024-10-15", end="2024-10-24")
     file_names = [f'bid_ask_data_BTCUSDT_{date.strftime("%Y%m%d")}.csv' for date in date_range]

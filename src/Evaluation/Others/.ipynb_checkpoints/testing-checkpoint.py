@@ -38,9 +38,9 @@ from Models.Log_Reg.log_reg import *
 
 horizons = [10, 20, 50, 100]
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-save_base_dir = '../trained_models'
+save_base_dir = '../trained_models/model'
 test_data_path = '../data/test.csv'
-cm_save_dir = '../trained_models'
+cm_save_dir = '../trained_models/model'
 
 
 horizons, save_base_dir, test_data_path, device, cm_save_dir

@@ -7,7 +7,13 @@ This study is designed for research purposes only and should not be used as a fi
 This repository contains the code and resources for our study on predicting Bitcoin mid-price trends using Limit Order Book (LOB) data. We evaluate multiple machine learning and deep learning models, including Logistic Regression, LSTM, CNN-LSTM, and transformer-based architectures. Our proposed model, **BiTran**, introduces novel enhancements such as Time Absolute Position Encoding (tAPE) and optimized attention mechanisms, achieving superior performance for trend forecasting over various time horizons.
 
 ## Recommendation
-We highly recommend using Google Colab Pro for this project, as it provides access to powerful GPUs and increased memory, which are essential for handling the complex architectures and the enormous dataset (~8 million data points) used in this work. Additionally, pretrained models are included in the pretrained path, allowing users to leverage prebuilt weights for faster experimentation and evaluation without the need for extensive training from scratch.
+
+To run this project, you need to download the dataset from the following link: [Google Drive - Dataset](https://drive.google.com/drive/folders/14PlRkorRQYOPipihQpi1wfVvFhL15bAB).
+
+Once downloaded, place the dataset in the `data/` folder at the root of the project directory. Ensure the folder structure matches the expected format for smooth execution of the code.
+
+We highly recommend slightly modifying the code and also using Google Colab Pro for this project, as it provides access to powerful GPUs and increased memory, which are essential for handling the complex architectures and the enormous dataset (~8 million data points) used in this work. Additionally, pretrained models are included in the pretrained path, allowing users to leverage prebuilt weights for faster experimentation and evaluation without the need for extensive training from scratch.
+
 
 ## Key Features
 
@@ -25,6 +31,8 @@ Detailed results for each model are provided in `results/` and our accompanying 
 ## Repository Structure
 
 ```plaintext
+├── data/                 # Data required to run the project (empty)
+├── images/               
 ├── Models/               # Implementation of all models.
 │   ├── Logistic Regression/
 │   ├── CNN-LSTM/
@@ -34,9 +42,11 @@ Detailed results for each model are provided in `results/` and our accompanying 
 │   ├── Evaluation/
 │   ├── Preprocessing/
 │   ├── Training/
-├── Pretrained/            # Pretrained Models.
-│   ├── BiTran_k.pt
-│   ├── pretrained_example.py
+├── Pretrained/           # Pretrained Models.
+│   ├── Logistic Regression/
+│   ├── CNN-LSTM/
+│   ├── LSMT/
+│   ├── Transformer/  
 ├── Results/              # Output logs, model checkpoints, and performance metrics.
 │   ├── CNN-LSTM/
 │       ├── CNN-LSTM_Results.ipynb
@@ -48,3 +58,7 @@ Detailed results for each model are provided in `results/` and our accompanying 
 ├── README.md             # Project documentation.
 ├── requirements.txt      # Python dependencies.
 ```
+
+
+
+

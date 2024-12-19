@@ -34,7 +34,7 @@ def set_seed(seed=42):
 
 set_seed(42)
 
-save_base_dir = '../Pretrained'
+save_base_dir = '../trained_models/model'
 os.makedirs(save_base_dir, exist_ok=True)
 
 lstm_models_dir = os.path.join(save_base_dir, 'LSTM')
@@ -97,7 +97,7 @@ def evaluate(model, dataset, device, criterion=None):
     avg_loss = np.mean(losses) if len(losses) > 0 else None
     return all_targets, all_preds, avg_loss
 
-def run_full_pipeline_for_horizon(horizon, train_path, device, sequence_length=10, batch_size=64, num_epochs=2):
+def run_full_pipeline_for_horizon(horizon, train_path, test_path, device, sequence_length=10, batch_size=64, num_epochs=2):
     scaler = StandardScaler()
     print(f"\n--- Horizon = {horizon} ---")
     print("Training on train.csv")
@@ -156,7 +156,7 @@ def run_full_pipeline_for_horizon(horizon, train_path, device, sequence_length=1
     print(f"LSTM scaler saved at: {scaler_save_path}")
 
 
-def run_full_pipeline_for_horizon_cnn_lstm(horizon, train_path, device, sequence_length=10, batch_size=64, num_epochs=2):
+def run_full_pipeline_for_horizon_cnn_lstm(horizon, train_path, test_path, device, sequence_length=10, batch_size=64, num_epochs=2):
 
     # Initialize scaler
     scaler = StandardScaler()
@@ -227,7 +227,7 @@ def run_full_pipeline_for_horizon_cnn_lstm(horizon, train_path, device, sequence
     joblib.dump(scaler, scaler_save_path)
     print(f"CNN_LSTM scaler saved at: {scaler_save_path}")
 
-def run_full_pipeline_for_horizon_logreg(horizon, train_path, device, sequence_length=10, batch_size=64, num_epochs=2):
+def run_full_pipeline_for_horizon_logreg(horizon, train_path, test_path, device, sequence_length=10, batch_size=64, num_epochs=2):
     # Initialize scaler
     scaler = StandardScaler()
 
@@ -299,6 +299,7 @@ for h in horizons:
     run_full_pipeline_for_horizon_logreg(
         horizon=h,
         train_path=train_set_path,
+        test_path=test_set_path,
         device=device,
         sequence_length=10,
         batch_size=64,
@@ -314,6 +315,7 @@ for h in horizons:
     run_full_pipeline_for_horizon(
         horizon=h,
         train_path=train_set_path,
+        test_path=test_set_path,
         device=device,
         sequence_length=10,
         batch_size=64,
@@ -329,6 +331,7 @@ for h in horizons:
     run_full_pipeline_for_horizon_cnn_lstm(
         horizon=h,
         train_path=train_set_path,
+        test_path=test_set_path,
         device=device,
         sequence_length=10,
         batch_size=64,
