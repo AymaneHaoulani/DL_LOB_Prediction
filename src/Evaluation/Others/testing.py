@@ -30,6 +30,11 @@ from src.Preprocessing.LabelGeneration import *
 from src.Preprocessing.Preprocessing import *
 from src.Preprocessing.dataset import *
 
+from Models.LSTM.lstm import *
+from Models.CNN_LSTM.cnn_lstm import *
+from Models.Log_Reg.log_reg import *
+
+
 
 horizons = [10, 20, 50, 100]
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

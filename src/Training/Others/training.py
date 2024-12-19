@@ -21,7 +21,9 @@ from src.Preprocessing.FeatureEngineering import *
 from src.Preprocessing.LabelGeneration import *
 from src.Preprocessing.Preprocessing import *
 from src.Preprocessing.dataset import *
-from Models.Others.model_architectures import *
+from Models.LSTM.lstm import *
+from Models.CNN_LSTM.cnn_lstm import *
+from Models.Log_Reg.log_reg import *
 
 
 def set_seed(seed=42):
